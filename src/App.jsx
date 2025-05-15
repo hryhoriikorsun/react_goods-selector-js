@@ -21,7 +21,7 @@ const goodsWithID = goods.map((good, index) => ({
 }));
 
 export const App = () => {
-  const [selectGoog, setSelectVal] = useState('Jam');
+  const [selectGoog, setSelectedGood] = useState('Jam');
 
   return (
     <main className="section container">
@@ -35,7 +35,7 @@ export const App = () => {
             data-cy="ClearButton"
             type="button"
             className="delete ml-3"
-            onClick={() => setSelectVal('')}
+            onClick={() => setSelectedGood('')}
           />
         )}
       </h1>
@@ -57,7 +57,9 @@ export const App = () => {
                     type="button"
                     className={`button ${isClicked ? 'is-info' : ''}`}
                     onClick={() =>
-                      isClicked ? setSelectVal('') : setSelectVal(good.element)
+                      isClicked
+                        ? setSelectedGood('')
+                        : setSelectedGood(good.element)
                     }
                   >
                     {isClicked ? '-' : '+'}
